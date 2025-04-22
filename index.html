@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIML Cybersecurity Consulting</title>
+    <title>BIML Consulting</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
+            background-color: #181818;
+            color: #ddd;
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -19,48 +19,51 @@
             text-align: center;
         }
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.3em;
+            font-size: 3em;
+            margin-bottom: 0.2em;
+            color: #ffffff;
         }
         p {
-            font-size: 1.2em;
+            font-size: 1.3em;
             margin-bottom: 1em;
         }
         .btn {
-            padding: 10px 20px;
-            background-color: #007bff;
+            padding: 12px 25px;
+            background-color: #0d6efd;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #0b5ed7;
+            transform: scale(1.05);
         }
         .testimonial, .timed-message {
             margin-top: 1em;
+            font-style: italic;
             opacity: 0;
-            transition: opacity 1s ease;
+            transition: opacity 1.5s ease;
         }
     </style>
 </head>
 <body>
-    <h1>BIML Cybersecurity Consulting</h1>
-    <p>We don't list our cybersecurity services because your threats don't fit a list.</p>
+    <h1>BIML Consulting</h1>
+    <p>Your cybersecurity threats deserve more than just a checklist.</p>
 
-    <p class="timed-message" id="timed-message">Security solutions tailored to your risks.</p>
+    <p class="timed-message" id="timed-message">Tailored cybersecurity, timed precisely to your needs.</p>
 
-    <a class="btn" href="mailto:info@biml-consulting.nl">Discuss Your Cybersecurity Needs</a>
+    <a class="btn" href="mailto:info@biml-consulting.nl">Connect with our Experts</a>
 
     <div class="testimonial" id="testimonial">
-        <em>"They saw threats we didn't know existed—then secured our business comprehensively."</em>
+        "They uncovered vulnerabilities we never anticipated—and secured us effectively."
     </div>
 
     <script>
         const messages = [
-            "Clear, simple security solutions.",
-            "Security solutions tailored to your risks.",
-            "Advanced, comprehensive cybersecurity."
+            "Clear, concise, actionable cybersecurity.",
+            "Tailored cybersecurity, timed precisely to your needs.",
+            "Advanced protection, comprehensively delivered."
         ];
 
         let currentMessage = 0;
@@ -72,10 +75,10 @@
                 currentMessage = (currentMessage + 1) % messages.length;
                 timedMessage.textContent = messages[currentMessage];
                 timedMessage.style.opacity = 1;
-            }, 1000);
+            }, 1200);
         }
 
-        setInterval(cycleMessages, 5000);
+        setInterval(cycleMessages, 6000);
 
         const btn = document.querySelector('.btn');
         const testimonial = document.getElementById('testimonial');
