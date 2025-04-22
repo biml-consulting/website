@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIML Consulting</title>
+    <title>BIML Cybersecurity Consulting</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -37,62 +37,60 @@
         .btn:hover {
             background-color: #0056b3;
         }
-        .interactive-message, .testimonial, .slider-section {
+        .testimonial, .timed-message {
             margin-top: 1em;
             opacity: 0;
             transition: opacity 1s ease;
         }
-        .slider-section input {
-            width: 300px;
-        }
     </style>
 </head>
 <body>
-    <h1>BIML Consulting</h1>
+    <h1>BIML Cybersecurity Consulting</h1>
     <p>We don't list our cybersecurity services because your threats don't fit a list.</p>
 
-    <div class="slider-section">
-        <input type="range" min="0" max="100" value="50" id="security-slider">
-        <p id="security-text">Security solutions tailored to your risks.</p>
-    </div>
+    <p class="timed-message" id="timed-message">Security solutions tailored to your risks.</p>
 
     <a class="btn" href="mailto:info@biml-consulting.nl">Discuss Your Cybersecurity Needs</a>
-
-    <p class="interactive-message" id="hint">Every cyber threat is unique—so is our approach.</p>
 
     <div class="testimonial" id="testimonial">
         <em>"They saw threats we didn't know existed—then secured our business comprehensively."</em>
     </div>
 
     <script>
+        const messages = [
+            "Clear, simple security solutions.",
+            "Security solutions tailored to your risks.",
+            "Advanced, comprehensive cybersecurity."
+        ];
+
+        let currentMessage = 0;
+        const timedMessage = document.getElementById('timed-message');
+
+        function cycleMessages() {
+            timedMessage.style.opacity = 0;
+            setTimeout(() => {
+                currentMessage = (currentMessage + 1) % messages.length;
+                timedMessage.textContent = messages[currentMessage];
+                timedMessage.style.opacity = 1;
+            }, 1000);
+        }
+
+        setInterval(cycleMessages, 5000);
+
         const btn = document.querySelector('.btn');
-        const hint = document.getElementById('hint');
-        const sliderSection = document.querySelector('.slider-section');
         const testimonial = document.getElementById('testimonial');
-        const securitySlider = document.getElementById('security-slider');
-        const securityText = document.getElementById('security-text');
 
         btn.addEventListener('mouseover', () => {
-            hint.style.opacity = 1;
             testimonial.style.opacity = 1;
         });
 
         btn.addEventListener('mouseout', () => {
-            hint.style.opacity = 0;
             testimonial.style.opacity = 0;
         });
 
-        securitySlider.addEventListener('input', () => {
-            sliderSection.style.opacity = 1;
-            const value = securitySlider.value;
-            if (value < 33) {
-                securityText.textContent = "Clear, simple security solutions.";
-            } else if (value < 66) {
-                securityText.textContent = "Security solutions tailored to your risks.";
-            } else {
-                securityText.textContent = "Advanced, comprehensive cybersecurity.";
-            }
-        });
+        window.onload = () => {
+            timedMessage.style.opacity = 1;
+        };
     </script>
 </body>
 </html>
