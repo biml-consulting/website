@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang=\"en\">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset=\"UTF-8\">
+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
     <title>BIML Consulting</title>
     <style>
         body {
@@ -13,10 +13,10 @@
             padding: 0;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            flex-direction: column;
         }
         h1 {
             font-size: 2.5em;
@@ -37,10 +37,13 @@
         .btn:hover {
             background-color: #555;
         }
-        .interactive-message {
-            font-style: italic;
+        .interactive-message, .testimonial, .slider-section {
+            margin-top: 1em;
             opacity: 0;
             transition: opacity 1s ease;
+        }
+        .slider-section input {
+            width: 300px;
         }
     </style>
 </head>
@@ -48,16 +51,47 @@
     <h1>BIML Consulting</h1>
     <p>We don't list our services because your challenges don't fit a list.</p>
 
-    <a class="btn" href="mailto:info@biml-consulting.nl">Start the Conversation</a>
+    <div class=\"slider-section\">
+        <input type=\"range\" min=\"0\" max=\"100\" value=\"50\" id=\"complexity-slider\">
+        <p id=\"complexity-text\">Complexity tailored to your needs.</p>
+    </div>
 
-    <p class="interactive-message" id="hint">Every solution is a story waiting to be told.</p>
+    <a class=\"btn\" href=\"mailto:info@biml-consulting.nl\">Begin a Meaningful Discussion</a>
+
+    <p class=\"interactive-message\" id=\"hint\">Every solution is a story waiting to be told.</p>
+
+    <div class=\"testimonial\" id=\"testimonial\">
+        <em>"They understood our challenge deeply—then crafted something uniquely ours."</em>
+    </div>
 
     <script>
-        document.querySelector('.btn').addEventListener('mouseover', () => {
-            document.getElementById('hint').style.opacity = 1;
+        const btn = document.querySelector('.btn');
+        const hint = document.getElementById('hint');
+        const sliderSection = document.querySelector('.slider-section');
+        const testimonial = document.getElementById('testimonial');
+        const complexitySlider = document.getElementById('complexity-slider');
+        const complexityText = document.getElementById('complexity-text');
+
+        btn.addEventListener('mouseover', () => {
+            hint.style.opacity = 1;
+            testimonial.style.opacity = 1;
         });
-        document.querySelector('.btn').addEventListener('mouseout', () => {
-            document.getElementById('hint').style.opacity = 0;
+
+        btn.addEventListener('mouseout', () => {
+            hint.style.opacity = 0;
+            testimonial.style.opacity = 0;
+        });
+
+        complexitySlider.addEventListener('input', () => {
+            sliderSection.style.opacity = 1;
+            const value = complexitySlider.value;
+            if (value < 33) {
+                complexityText.textContent = \"Simple yet powerful.\";
+            } else if (value < 66) {
+                complexityText.textContent = \"Complexity tailored to your needs.\";
+            } else {
+                complexityText.textContent = \"Deeply intricate, uniquely yours.\";
+            }
         });
     </script>
 </body>
