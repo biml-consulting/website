@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BIML Consulting</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIML Consulting</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.3em;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 1em;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #555;
+        }
+        .interactive-message {
+            font-style: italic;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+    </style>
 </head>
 <body>
-  <!-- your hero, services, etc. -->
+    <h1>BIML Consulting</h1>
+    <p>We don't list our services because your challenges don't fit a list.</p>
 
-<header class="hero">
-  <h1>If you know us, you already know.<br>
-      If you don’t…</h1>
-  <p>Cybersecurity, redefined for those in the know.</p>
-<h2>We don’t believe a website can build trust. That comes from experience, from working together through good times and bad.
-So, if you're here out of curiosity—welcome, but this isn’t a pitch.<br/>
-If you already know us—hello again. You know how to reach us.</h2>
-</header>
+    <a class="btn" href="mailto:info@biml-consulting.nl">Start the Conversation</a>
 
-<section id="services">
-  <h2>What We Do</h2>
-  <ul>
-    <li><strong>Risk Assessment</strong><br>Uncover hidden exposures before they become headlines.</li>
-    <li><strong>Penetration Testing</strong><br>Real‑world attack simulations, tailored to your environment.</li>
-    <li><strong>Incident Response</strong><br>Rapid containment and forensic clarity, 24/7.</li>
-    <li><strong>Strategy & Governance</strong><br>Align security with business objectives and regulatory demands.</li>
-  </ul>
-</section>
+    <p class="interactive-message" id="hint">Every solution is a story waiting to be told.</p>
 
-<section id="why">
-  <p>Trusted by financial institutions, government bodies, and Fortune 500 innovators.</p>
-</section>
-
-<section id="contact">
-  <a href="mailto:info@biml-consulting.nl" class="btn">Let’s Talk Privately</a>
-</section>
-
-
-<footer>
-  <small>© 2025 BIML Consulting – All rights reserved.</small>
-</footer>
-  </body>
+    <script>
+        document.querySelector('.btn').addEventListener('mouseover', () => {
+            document.getElementById('hint').style.opacity = 1;
+        });
+        document.querySelector('.btn').addEventListener('mouseout', () => {
+            document.getElementById('hint').style.opacity = 0;
+        });
+    </script>
+</body>
 </html>
