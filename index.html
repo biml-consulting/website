@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: #121212;
+            color: #ffffff;
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -28,14 +28,14 @@
         }
         .btn {
             padding: 10px 20px;
-            background-color: #333;
+            background-color: #007bff;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
         .btn:hover {
-            background-color: #555;
+            background-color: #0056b3;
         }
         .interactive-message, .testimonial, .slider-section {
             margin-top: 1em;
@@ -49,19 +49,19 @@
 </head>
 <body>
     <h1>BIML Consulting</h1>
-    <p>We don't list our services because your challenges don't fit a list.</p>
+    <p>We don't list our cybersecurity services because your threats don't fit a list.</p>
 
     <div class="slider-section">
-        <input type="range" min="0" max="100" value="50" id="complexity-slider">
-        <p id="complexity-text">Complexity tailored to your needs.</p>
+        <input type="range" min="0" max="100" value="50" id="security-slider">
+        <p id="security-text">Security solutions tailored to your risks.</p>
     </div>
 
-    <a class="btn" href="mailto:info@biml-consulting.nl">Begin a Meaningful Discussion</a>
+    <a class="btn" href="mailto:info@biml-consulting.nl">Discuss Your Cybersecurity Needs</a>
 
-    <p class="interactive-message" id="hint">Every solution is a story waiting to be told.</p>
+    <p class="interactive-message" id="hint">Every cyber threat is unique—so is our approach.</p>
 
     <div class="testimonial" id="testimonial">
-        <em>"They understood our challenge deeply—then crafted something uniquely ours."</em>
+        <em>"They saw threats we didn't know existed—then secured our business comprehensively."</em>
     </div>
 
     <script>
@@ -69,8 +69,8 @@
         const hint = document.getElementById('hint');
         const sliderSection = document.querySelector('.slider-section');
         const testimonial = document.getElementById('testimonial');
-        const complexitySlider = document.getElementById('complexity-slider');
-        const complexityText = document.getElementById('complexity-text');
+        const securitySlider = document.getElementById('security-slider');
+        const securityText = document.getElementById('security-text');
 
         btn.addEventListener('mouseover', () => {
             hint.style.opacity = 1;
@@ -82,15 +82,15 @@
             testimonial.style.opacity = 0;
         });
 
-        complexitySlider.addEventListener('input', () => {
+        securitySlider.addEventListener('input', () => {
             sliderSection.style.opacity = 1;
-            const value = complexitySlider.value;
+            const value = securitySlider.value;
             if (value < 33) {
-                complexityText.textContent = "Simple yet powerful.";
+                securityText.textContent = "Clear, simple security solutions.";
             } else if (value < 66) {
-                complexityText.textContent = "Complexity tailored to your needs.";
+                securityText.textContent = "Security solutions tailored to your risks.";
             } else {
-                complexityText.textContent = "Deeply intricate, uniquely yours.";
+                securityText.textContent = "Advanced, comprehensive cybersecurity.";
             }
         });
     </script>
