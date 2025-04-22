@@ -8,7 +8,7 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #181818;
-            color: #ddd;
+            color: #ffffff;
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -19,29 +19,37 @@
             text-align: center;
         }
         h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             margin-bottom: 0.2em;
-            color: #ffffff;
         }
         p {
-            font-size: 1.3em;
+            font-size: 1.5em;
             margin-bottom: 1em;
         }
+        .timed-message {
+            font-size: 1.4em;
+            font-style: italic;
+            margin-bottom: 2em;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
         .btn {
-            padding: 12px 25px;
+            padding: 15px 30px;
+            font-size: 1.1em;
             background-color: #0d6efd;
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 10px;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .btn:hover {
             background-color: #0b5ed7;
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
-        .testimonial, .timed-message {
-            margin-top: 1em;
+        .testimonial {
+            font-size: 1.1em;
             font-style: italic;
+            margin-top: 2em;
             opacity: 0;
             transition: opacity 1.5s ease;
         }
@@ -51,7 +59,7 @@
     <h1>BIML Consulting</h1>
     <p>Your cybersecurity threats deserve more than just a checklist.</p>
 
-    <p class="timed-message" id="timed-message">Tailored cybersecurity, timed precisely to your needs.</p>
+    <div class="timed-message" id="timed-message">Clear, concise, actionable cybersecurity.</div>
 
     <a class="btn" href="mailto:info@biml-consulting.nl">Connect with our Experts</a>
 
@@ -62,8 +70,8 @@
     <script>
         const messages = [
             "Clear, concise, actionable cybersecurity.",
-            "Tailored cybersecurity, timed precisely to your needs.",
-            "Advanced protection, comprehensively delivered."
+            "Tailored cybersecurity solutions.",
+            "Advanced cybersecurity delivered comprehensively."
         ];
 
         let currentMessage = 0;
@@ -78,7 +86,7 @@
             }, 1200);
         }
 
-        setInterval(cycleMessages, 6000);
+        setInterval(cycleMessages, 5000);
 
         const btn = document.querySelector('.btn');
         const testimonial = document.getElementById('testimonial');
