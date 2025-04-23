@@ -27,6 +27,7 @@
     }
     h1{font-family:'Outfit',sans-serif;}
     body, .lead, .description{font-family:'Inter',sans-serif;}
+    .cont { display:inline-block; padding-left: 2ch; }
     .container{width:100%;max-width:840px;margin:auto;}
     h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:700;margin-bottom:1rem;}
     .lead{font-size:clamp(1rem,3.2vw,1.45rem);color:#ccc;margin-bottom:1.8rem;}
@@ -59,7 +60,12 @@
     <h1>BIML Consulting</h1>
     <p class="lead">Your cybersecurity threats deserve more than just a checklist.</p>
     <p class="quote">"If you know, you know."</p>
-    <p class="description">We don't believe a website can build trust. That comes from experience—working together through good times and bad. So, if you're here out of curiosity — welcome, but this isn’t a pitch. If you already know us — hello again. You know how to reach us.</p>
+    <p class="description">
+  We don't believe a website can build trust.<br>
+  <span class="cont">That comes from experience—working together through good times and bad.</span><br><br>
+  So, if you're here out of curiosity — welcome, but this isn’t a pitch.<br>
+  <span class="cont">If you already know us — hello again. You know how to reach us.</span>
+</p>
     <div class="timed-message" id="tagline">Tailored cybersecurity solutions.</div>
     <button class="cta-btn" id="open-modal">Start a Conversation</button>
     <div class="testimonial" id="testimonial">"They uncovered vulnerabilities we never anticipated — and secured us effectively."</div>
