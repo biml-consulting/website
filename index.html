@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>BIML Consulting</title>
+  <title>BIML Consulting</title>
   <style>
     :root {
       --primary:#0d6efd;
@@ -22,57 +22,55 @@
       align-items:flex-start;
       text-align:center;
       padding:calc(env(safe-area-inset-top)+1.5rem) 1rem 2rem;
+      overflow-x:hidden;
     }
     .container{width:100%;max-width:840px;margin:auto;}
-    h1{
-      font-size:clamp(2.1rem,6vw,3.6rem);
-      font-weight:700;
-      margin-bottom:1rem;
-    }
-    .lead{font-size:clamp(1rem,3.5vw,1.4rem);color:#ccc;margin-bottom:1.8rem;}
-    .quote{font-style:italic;color:#aaa;margin-bottom:1.4rem;font-size:clamp(1rem,3.2vw,1.2rem);}    
-    .description{font-size:clamp(.98rem,3.8vw,1.18rem);line-height:1.55;color:#ddd;margin-bottom:2.2rem;padding:0 0.4rem;}
-    .timed-message{font-size:clamp(1rem,3.4vw,1.2rem);font-style:italic;margin-bottom:2.4rem;opacity:0;transition:opacity 1.5s ease;color:#9b9b9b;}
-    .cta-btn{
-      width:100%;max-width:320px;
-      padding:1rem 2.2rem;
-      font-size:1.05rem;
-      background:var(--primary);
-      color:#fff;border:none;border-radius:12px;cursor:pointer;
-      transition:background .3s ease, transform .3s ease;
-    }
-    .cta-btn:hover{background:var(--primary-dark);transform:scale(1.04);}    
-    .testimonial{font-size:1rem;font-style:italic;margin-top:2.3rem;opacity:0;transition:opacity 1.5s ease;color:#bfbfbf;}
+    h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:700;margin-bottom:1rem;}
+    .lead{font-size:clamp(1rem,3.2vw,1.45rem);color:#ccc;margin-bottom:1.8rem;}
+    .quote{font-style:italic;color:#aaa;margin-bottom:1.4rem;font-size:clamp(1rem,3vw,1.25rem);} 
+    .description{font-size:clamp(.98rem,3.5vw,1.2rem);line-height:1.55;color:#ddd;margin-bottom:2.2rem;padding:0 0.4rem;}
+    .timed-message{font-size:clamp(1rem,3.2vw,1.25rem);font-style:italic;margin-bottom:2.4rem;color:#9b9b9b;opacity:0;transition:opacity 1.4s ease;}
+    .cta-btn{width:100%;max-width:320px;padding:1rem 2.2rem;font-size:1.05rem;background:var(--primary);color:#fff;border:none;border-radius:12px;cursor:pointer;transition:background .3s,transform .3s;}
+    .cta-btn:hover{background:var(--primary-dark);transform:scale(1.04);} 
+    .testimonial{font-size:1rem;font-style:italic;margin-top:2.3rem;color:#bfbfbf;opacity:0;transition:opacity 1.4s ease;}
 
-    /* Extra tweaks for very small screens */
-    @media(max-width:360px){
-      body{padding-top:calc(env(safe-area-inset-top)+1rem);}
-      .description{margin-bottom:1.8rem;}
-    }
+    /* ------- MODAL ------- */
+    .modal{position:fixed;inset:0;display:flex;justify-content:center;align-items:center;background:rgba(0,0,0,0.65);visibility:hidden;opacity:0;transition:opacity .4s ease,visibility .4s ease;z-index:1000;}
+    .modal.show{visibility:visible;opacity:1;}
+    .modal-content{background:#222;border-radius:12px;padding:2rem;width:90%;max-width:420px;box-shadow:0 20px 40px rgba(0,0,0,.45);display:flex;flex-direction:column;gap:1rem;position:relative;text-align:left;}
+    .close{position:absolute;top:12px;right:16px;font-size:1.6rem;color:#aaa;cursor:pointer;transition:color .2s ease;}
+    .close:hover{color:#fff;}
+    form{display:flex;flex-direction:column;gap:.9rem;}
+    input,textarea{font:inherit;padding:.8rem 1rem;border-radius:8px;border:1px solid #444;background:#2a2a2a;color:#fff;resize:vertical;}
+    textarea{min-height:120px;}
+    form button{align-self:flex-start;background:var(--primary);color:#fff;border:none;padding:.7rem 1.4rem;border-radius:8px;font-size:1rem;cursor:pointer;transition:background .3s,transform .3s;}
+    form button:hover{background:var(--primary-dark);transform:scale(1.05);}    
+    #form-success{display:none;color:#7bf77b;font-size:1rem;}
+
+    /* Very small devices */
+    @media(max-width:360px){body{padding-top:calc(env(safe-area-inset-top)+1rem);} .description{margin-bottom:1.8rem;}}
   </style>
 </head>
 <body>
   <main class="container">
-    <h1>BIML Consulting</h1>
+    <h1>BIML Consulting</h1>
     <p class="lead">Your cybersecurity threats deserve more than just a checklist.</p>
     <p class="quote">"If you know, you know."</p>
-    <p class="description">
-      We don't believe a website can build trust. That comes from experience—working together through good times and bad. So, if you're here out of curiosity — welcome, but this isn’t a pitch. If you already know us — hello again. You know how to reach us.
-    </p>
-    <div class="timed-message" id="timed-message">Tailored cybersecurity solutions.</div>
-    <button class="cta-btn" id="open-modal">Start a Conversation</button>
+    <p class="description">We don't believe a website can build trust. That comes from experience—working together through good times and bad. So, if you're here out of curiosity — welcome, but this isn’t a pitch. If you already know us — hello again. You know how to reach us.</p>
+    <div class="timed-message" id="tagline">Tailored cybersecurity solutions.</div>
+    <button class="cta-btn" id="open-modal">Start a Conversation</button>
     <div class="testimonial" id="testimonial">"They uncovered vulnerabilities we never anticipated — and secured us effectively."</div>
   </main>
 
-  <!-- Contact Modal -->
+  <!-- Modal -->
   <div class="modal" id="contact-modal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <span class="close" id="close-modal" aria-label="Close">&times;</span>
       <h2 id="modal-title">Let's talk cybersecurity</h2>
       <form id="contact-form" action="https://formspree.io/f/yourEndpoint" method="POST">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <textarea name="message" placeholder="Tell us about your challenge" required></textarea>
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" placeholder="Tell us about your challenge" required></textarea>
         <button type="submit">Send</button>
         <div id="form-success">Thank you! We'll be in touch shortly.</div>
       </form>
@@ -80,18 +78,20 @@
   </div>
 
   <script>
-    /* Rotating tagline */
-    const messages=[
-      'Tailored cybersecurity solutions.',
-      'Clear, concise, actionable protection.',
-      'Advanced security, delivered comprehensively.'
-    ];
-    let current=0;const timedMessage=document.getElementById('timed-message');function rotate(){timedMessage.style.opacity=0;setTimeout(()=>{current=(current+1)%messages.length;timedMessage.textContent=messages[current];timedMessage.style.opacity=1;},800);}setInterval(rotate,5500);window.onload=()=>timedMessage.style.opacity=1;
-    /* Modal logic */
-    const modal=document.getElementById('contact-modal');document.getElementById('open-modal').onclick=()=>modal.classList.add('show');document.getElementById('close-modal').onclick=()=>modal.classList.remove('show');modal.onclick=e=>{if(e.target===modal)modal.classList.remove('show');};
+    /* Tagline rotation */
+    const lines=['Tailored cybersecurity solutions.','Clear, concise, actionable protection.','Advanced security, delivered comprehensively.'];
+    let idx=0;const tl=document.getElementById('tagline');function rot(){tl.style.opacity=0;setTimeout(()=>{idx=(idx+1)%lines.length;tl.textContent=lines[idx];tl.style.opacity=1;},800);}setInterval(rot,5500);window.onload=()=>tl.style.opacity=1;
+
+    /* Modal */
+    const modal=document.getElementById('contact-modal');const body=document.body;
+    document.getElementById('open-modal').onclick=()=>{modal.classList.add('show');body.style.overflow='hidden';};
+    document.getElementById('close-modal').onclick=()=>{modal.classList.remove('show');body.style.overflow='auto';};
+    modal.onclick=e=>{if(e.target===modal){modal.classList.remove('show');body.style.overflow='auto';}};
+
     /* Testimonial hover */
-    const testimonial=document.getElementById('testimonial');const btn=document.getElementById('open-modal');btn.onmouseover=()=>testimonial.style.opacity=1;btn.onmouseout=()=>testimonial.style.opacity=0;
-    /* Formspree submit */
+    const tst=document.getElementById('testimonial');const btn=document.getElementById('open-modal');btn.onmouseover=()=>tst.style.opacity=1;btn.onmouseout=()=>tst.style.opacity=0;
+
+    /* Form submit */
     const form=document.getElementById('contact-form');form.addEventListener('submit',async e=>{e.preventDefault();const data=new FormData(form);try{await fetch(form.action,{method:'POST',body:data,headers:{Accept:'application/json'}});document.getElementById('form-success').style.display='block';form.reset();}catch(err){alert('Sorry, something went wrong. Please email us directly.');}});
   </script>
 </body>
